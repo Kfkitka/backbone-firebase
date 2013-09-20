@@ -2,35 +2,43 @@ define(function(require) {
 
     'use strict';
 
-    var $               = require('jquery'),
-        HomeView        = require('views/Home'),
-        SecondView      = require('views/Second'),
-        Snap            = require('snap');
+    var $           = require('jquery'),
+        HomeView    = require('views/Home'),
+        SecondView  = require('views/Second'),
+        MenuView    = require('views/Menu'),
+        Snap        = require('snap');
 
     return Backbone.Router.extend({
         routes: {
             "": "home",
             "second": "second"
         },
-        initialize: function () {
-            this._initSnapper();
+
+        initialize: function() {
             this.view = null;
         },
-        home: function () {
+
+        home: function() {
             this._cleanUp();
             this.view = new HomeView();
-            this.view.render();
             this.show();
         },
-        second: function () {
+
+        second: function() {
             this._cleanUp();
             this.view = new SecondView();
-            this.view.render();
             this.show();
         },
+
+        _initMenu: function() {
+            this.menu = new MenuView();
+            this.menu.render();
+            $('body').prepend(this.menu.el);
+        },
+
         _initSnapper: function() {
             this.snapper = new Snap({
-                element: document.getElementById('content'),
+                element: document.getElementById('snapper'),
                 dragger: null,
                 disable: 'right'
             });
@@ -39,16 +47,27 @@ define(function(require) {
                 this.snapper.open('left');
             });
         },
+
         _cleanUp: function() {
             if (this.view) {
                 this.view.remove();
             }
 
+            if (this.menu) {
+                this.menu.remove();
+            }
+
+            this.menu = null;
             this.view = null;
         },
+
         show: function () {
-            $('#content').html(this.view.el);
+            this._initMenu();
+            this.view.render();
+            $('body').prepend(this.view.el);
+            this._initSnapper();
             this.snapper.close();
+            $('body').removeClass('snapjs-left'); // ?? page loads with this class set.
         }
     });
 });

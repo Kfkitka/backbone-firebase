@@ -1,7 +1,7 @@
 require.config({
     urlArgs: "bust=" + (new Date()).getTime(),
     baseUrl: "./",
-    enforceDefine: false,
+    enforceDefine: true,
     deps: ["js/app"],
     waitSeconds: 200,
     paths: {
@@ -13,6 +13,8 @@ require.config({
         "backboneFirebase"      : "./js/vendor/backbone-firebase",
         "snap"                  : "./js/vendor/snap-1.2.9",
         "fastClick"             : "./js/vendor/fastclick-0.6.9",
+        "modernizr"             : "./js/vendor/modernizr-2.6.2",
+        "RatchetModal"          : "./js/vendor/ratchet-modal",
 
         // Application Folders
         "templates"             : "./tpl",
@@ -33,7 +35,10 @@ require.config({
         },
         backboneFirebase: {
             deps: ["backbone", "firebase"],
-            exports: "backboneFirebase"
+            exports: "Backbone.Firebase"
+        },
+        firebase: {
+            exports: "Firebase"
         }
     }
 });

@@ -12,6 +12,10 @@ define(function (require) {
     return Backbone.View.extend({
         template: _.template(tpl),
 
+        tagName: 'div',
+
+        className: 'snap-content',
+
         initialize: function() {
             this.items = new ItemsColl();
             this.listenTo(this.items, 'add', this.addOne);
@@ -22,7 +26,7 @@ define(function (require) {
         },
 
         render: function() {
-            this.$el.html(this.template());
+            this.$el.html(this.template()).attr('id', 'snapper');
             this.input = this.$('#new-item');
             this.items.each(function(model) {
                 this.addOne(model);
@@ -40,8 +44,10 @@ define(function (require) {
 
         createItem: function(e) {
             if (e.keyCode == 13) {
-                this.items.add({text: this.input.val()});
-                this.input.val('');
+                if (this.input.val() !== '') {
+                    this.items.add({text: this.input.val()});
+                    this.input.val('');
+                }
             }
         }
     });
