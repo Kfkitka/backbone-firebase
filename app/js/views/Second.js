@@ -7,14 +7,13 @@ define(function (require) {
         Backbone    = require('backbone'),
         ItemsColl   = require('collections/Items'),
         ItemView    = require('views/Item'),
-        tpl         = require('text!tpl/second.html');
+        tpl         = require('text!tpl/second.html'),
+        Junior      = require('junior');
 
     return Backbone.View.extend({
         template: _.template(tpl),
 
         tagName: 'div',
-
-        className: 'snap-content',
 
         initialize: function() {
             this.items = new ItemsColl();
@@ -22,11 +21,12 @@ define(function (require) {
         },
 
         events: {
-            'keypress #new-item' : 'createItem'
+            'keypress #new-item'    : 'createItem',
+            'keypress .go-back'     : 'goBack'
         },
 
         render: function() {
-            this.$el.html(this.template()).attr('id', 'snapper');
+            this.$el.html(this.template());
             this.input = this.$('#new-item');
             this.items.each(function(model) {
                 this.addOne(model);
@@ -49,6 +49,16 @@ define(function (require) {
                     this.input.val('');
                 }
             }
+        },
+
+        goBack: function() {
+            Junior.Navigator.navigate('/', {
+                trigger: true,
+                animation: {
+                    type: Junior.Navigator.animations.SLIDE_STACK,
+                    direction: Junior.Navigator.directions.LEFT
+                }
+            });
         }
     });
 });

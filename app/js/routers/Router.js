@@ -6,9 +6,10 @@ define(function(require) {
         HomeView    = require('views/Home'),
         SecondView  = require('views/Second'),
         MenuView    = require('views/Menu'),
-        Snap        = require('snap');
+        Snap        = require('snap'),
+        Junior      = require('junior');
 
-    return Backbone.Router.extend({
+    return Junior.Router.extend({
         routes: {
             "": "home",
             "second": "second"
@@ -16,58 +17,42 @@ define(function(require) {
 
         initialize: function() {
             this.view = null;
+            this._initSnapper();
         },
 
         home: function() {
-            this._cleanUp();
-            this.view = new HomeView();
-            this.show();
+            this.renderView(new HomeView());
+            this._toggleSnapper();
         },
 
         second: function() {
-            this._cleanUp();
-            this.view = new SecondView();
-            this.show();
-        },
-
-        _initMenu: function() {
-            this.menu = new MenuView();
-            this.menu.render();
-            $('body').prepend(this.menu.el);
+            this.renderView(new SecondView());
+            this._toggleSnapper();
         },
 
         _initSnapper: function() {
             this.snapper = new Snap({
-                element: document.getElementById('snapper'),
+                element: document.getElementById('app-container'),
                 dragger: null,
                 disable: 'right'
             });
+        },
+
+        _toggleSnapper: function() {
+            var self = this;
+
+            this.menu = new MenuView();
+            this.menu.render();
+
+            $('body').prepend(this.menu.el);
 
             $('#slide-menu-button').click(function() {
-                this.snapper.open('left');
+                if ($('body').hasClass('snapjs-left')) {
+                    self.snapper.close('left');
+                } else {
+                    self.snapper.open('left');
+                }
             });
-        },
-
-        _cleanUp: function() {
-            if (this.view) {
-                this.view.remove();
-            }
-
-            if (this.menu) {
-                this.menu.remove();
-            }
-
-            this.menu = null;
-            this.view = null;
-        },
-
-        show: function () {
-            this._initMenu();
-            this.view.render();
-            $('body').prepend(this.view.el);
-            this._initSnapper();
-            this.snapper.close();
-            $('body').removeClass('snapjs-left'); // ?? page loads with this class set.
         }
     });
 });

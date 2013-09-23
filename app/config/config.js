@@ -15,6 +15,7 @@ require.config({
         "fastClick"             : "./js/vendor/fastclick-0.6.9",
         "modernizr"             : "./js/vendor/modernizr-2.6.2",
         "RatchetModal"          : "./js/vendor/ratchet-modal",
+        "junior"                : "./js/vendor/junior",
 
         // Application Folders
         "templates"             : "./tpl",
@@ -39,6 +40,10 @@ require.config({
         },
         firebase: {
             exports: "Firebase"
+        },
+        junior: {
+            deps: ['backbone'],
+            exports: 'Jr'
         }
     }
 });

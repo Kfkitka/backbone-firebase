@@ -1,12 +1,15 @@
-/* Show "Left" drawer for the "Right" drawer in the demo */
-.snapjs-right .snap-drawer-left {
-    display: block;
-    right: 0;
-    left: auto;
+/*
+ * Snap overrides.
+ */
+.snap-content {
+    overflow: visible;
 }
 
-.snapjs-right .snap-drawer-right {
-    display: none;
+/*
+ * Junior overrides.
+ */
+.bar-title .title + [class*="button"]:last-child {
+    top: auto;
 }
 
 /* Demo toolbar styles */
