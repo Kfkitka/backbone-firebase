@@ -5,8 +5,8 @@ define(function (require) {
     var $           = require('jquery'),
         _           = require('lodash'),
         Backbone    = require('backbone'),
-        ItemsColl   = require('collections/Items'),
-        tpl         = require('text!tpl/item.html');
+        ItemsColl   = require('collections/ItemsCollection'),
+        tpl         = require('text!templates/item.html');
 
     return Backbone.View.extend({
         tagName: "li",

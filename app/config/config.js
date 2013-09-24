@@ -2,30 +2,30 @@ require.config({
     urlArgs: "bust=" + (new Date()).getTime(),
     baseUrl: "./",
     enforceDefine: true,
-    deps: ["js/app"],
+    deps: ["js/main"],
     waitSeconds: 200,
     paths: {
-        "jquery"                : "./js/vendor/jquery-1.10.2",
-        "lodash"                : "./js/vendor/lodash-1.3.1",
-        "backbone"              : "./js/vendor/backbone-1.0.0",
-        "text"                  : "./js/vendor/text-2.0.10",
+        "jquery"                : "./js/libs/jquery-1.10.2",
+        "lodash"                : "./js/libs/lodash-1.3.1",
+        "backbone"              : "./js/libs/backbone-1.0.0",
+        "text"                  : "./js/libs/text-2.0.10",
         "firebase"              : "http://cdn.firebase.com/v0/firebase",
-        "backboneFirebase"      : "./js/vendor/backbone-firebase",
-        "snap"                  : "./js/vendor/snap-1.2.9",
-        "fastClick"             : "./js/vendor/fastclick-0.6.9",
-        "modernizr"             : "./js/vendor/modernizr-2.6.2",
-        "RatchetModal"          : "./js/vendor/ratchet-modal",
-        "junior"                : "./js/vendor/junior",
-        "spin"                  : "./js/vendor/spin-1.3.2",
+        "backboneFirebase"      : "./js/libs/backbone-firebase",
+        "snap"                  : "./js/libs/snap-1.2.9",
+        "fastClick"             : "./js/libs/fastclick-0.6.9",
+        "modernizr"             : "./js/libs/modernizr-2.6.2",
+        "RatchetModal"          : "./js/libs/ratchet-modal",
+        "junior"                : "./js/libs/junior",
+        "spin"                  : "./js/libs/spin-1.3.2",
 
         // Application Folders
-        "templates"             : "./tpl",
+        "templates"             : "./js/templates",
         "collections"           : "./js/collections",
         "models"                : "./js/models",
         "views"                 : "./js/views",
 
         // Routers
-        "router"                : "./js/routers/Router"
+        "router"                : "./js/router/Router"
     },
     shim: {
         backbone: {

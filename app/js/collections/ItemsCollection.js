@@ -3,7 +3,7 @@ define(function (require) {
     "use strict";
 
     var Backbone            = require('backbone'),
-        Item                = require('models/Item'),
+        Item                = require('models/ItemModel'),
         Firebase            = require('firebase'),
         BackboneFirebase    = require('backboneFirebase');
 

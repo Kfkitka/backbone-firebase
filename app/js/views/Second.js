@@ -5,9 +5,9 @@ define(function (require) {
     var $           = require('jquery'),
         _           = require('lodash'),
         Backbone    = require('backbone'),
-        ItemsColl   = require('collections/Items'),
+        ItemsColl   = require('collections/ItemsCollection'),
         ItemView    = require('views/Item'),
-        tpl         = require('text!tpl/second.html'),
+        tpl         = require('text!templates/second.html'),
         Junior      = require('junior');
 
     return Backbone.View.extend({

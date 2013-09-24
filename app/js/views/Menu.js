@@ -5,7 +5,7 @@ define(function (require) {
     var $           = require('jquery'),
         _           = require('lodash'),
         Backbone    = require('backbone'),
-        tpl         = require('text!tpl/menu.html'),
+        tpl         = require('text!templates/menu.html'),
         Junior      = require('junior');
 
     var view = Backbone.View.extend({

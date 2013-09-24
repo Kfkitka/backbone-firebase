@@ -5,7 +5,7 @@ define(function (require) {
     var $           = require('jquery'),
         _           = require('lodash'),
         Backbone    = require('backbone'),
-        tpl         = require('text!tpl/home.html');
+        tpl         = require('text!templates/home.html');
 
     var view = Backbone.View.extend({
         template: _.template(tpl),
