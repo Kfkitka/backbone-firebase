@@ -32,6 +32,9 @@ define(function (require) {
                 this.addOne(model);
             }, this);
 
+            // Need a callback for backfire collection render.
+            this.trigger('rendered', this);
+
             return this;
         },
 

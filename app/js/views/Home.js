@@ -22,6 +22,7 @@ define(function (require) {
 
         render: function() {
             this.$el.html(this.template());
+            this.trigger('rendered', this);
 
             return this;
         },

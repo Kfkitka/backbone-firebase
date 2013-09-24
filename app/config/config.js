@@ -16,6 +16,7 @@ require.config({
         "modernizr"             : "./js/vendor/modernizr-2.6.2",
         "RatchetModal"          : "./js/vendor/ratchet-modal",
         "junior"                : "./js/vendor/junior",
+        "spin"                  : "./js/vendor/spin-1.3.2",
 
         // Application Folders
         "templates"             : "./tpl",
@@ -44,6 +45,9 @@ require.config({
         junior: {
             deps: ['backbone'],
             exports: 'Jr'
+        },
+        spin: {
+            exports: "Spinner"
         }
     }
 });
