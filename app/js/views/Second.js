@@ -5,9 +5,9 @@ define(function (require) {
     var $           = require('jquery'),
         _           = require('lodash'),
         Backbone    = require('backbone'),
+        tpl         = require('text!templates/second.html'),
         ItemsColl   = require('collections/ItemsCollection'),
         ItemView    = require('views/Item'),
-        tpl         = require('text!templates/second.html'),
         Junior      = require('junior');
 
     return Backbone.View.extend({
@@ -33,7 +33,7 @@ define(function (require) {
             }, this);
 
             // Need a callback for backfire collection render.
-            this.trigger('rendered', this);
+            Backbone.Model.instances.vent.trigger('rendered:second');
 
             return this;
         },

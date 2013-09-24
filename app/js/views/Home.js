@@ -22,7 +22,7 @@ define(function (require) {
 
         render: function() {
             this.$el.html(this.template());
-            this.trigger('rendered', this);
+            Backbone.Model.instances.vent.trigger('rendered:home');
 
             return this;
         },

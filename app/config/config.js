@@ -17,12 +17,14 @@ require.config({
         "RatchetModal"          : "./js/libs/ratchet-modal",
         "junior"                : "./js/libs/junior",
         "spin"                  : "./js/libs/spin-1.3.2",
+        "eventDispatcher"       : "./js/util/EventDispatcher",
 
         // Application Folders
         "templates"             : "./js/templates",
         "collections"           : "./js/collections",
         "models"                : "./js/models",
         "views"                 : "./js/views",
+        "util"                  : "./js/util",
 
         // Routers
         "router"                : "./js/router/Router"
