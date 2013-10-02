@@ -14,3 +14,13 @@ Run it.
 ```
 grunt server
 ```
+
+Compile with r.js.
+
+```
+cd app/
+```
+
+```
+node r.js -o build.js
+```

@@ -9,6 +9,6 @@ define(function (require) {
 
     return Backbone.Firebase.Collection.extend({
         model:      Item,
-        firebase:   'https://snapbase.firebaseio.com/items'
+        firebase:   new Firebase('https://snapbase.firebaseio.com/items')
     });
 });

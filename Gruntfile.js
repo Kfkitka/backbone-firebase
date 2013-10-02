@@ -5,7 +5,6 @@ module.exports = function (grunt) {
     grunt.registerTask("default", ["server"]);
     grunt.registerTask("server", ["connect"]);
     grunt.registerTask("liveload", ["watch"]);
-    grunt.registerTask("release", ["clean", "requirejs", "concat", "copy"]);
 
     grunt.initConfig({
         connect: {
@@ -22,8 +21,8 @@ module.exports = function (grunt) {
             compile: {
                 options: {
                     baseUrl: "./app/js",
-                    mainConfigFile: "config/config.js",
-                    name: "config",
+                    mainConfigFile: "./app/js/main.js",
+                    name: "main",
                     wrap: false
                 }
             }
